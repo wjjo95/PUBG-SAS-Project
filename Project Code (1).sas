@@ -8,6 +8,7 @@ PROC IMPORT datafile="/home/u58560613/MBAN5110_JustinC/MBAN5110/train_V2.csv"
 run;
 
 /* DATA step modifications */
+/* Transforming Kills variable to log_kills in order to ensure that the constance variance assumption has been met */
 data work.pubgtrain;
 	set work.pubg_trainV2;
 	log_kills = LOG(kills+1);
